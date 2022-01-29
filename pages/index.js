@@ -44,6 +44,7 @@ export default function PaginaInicial() {
     //const username = 'paulo-101';
     const [username, setUsername] = React.useState('')
     const roteamento = useRouter();
+   
 
     return (
         <>
@@ -73,10 +74,12 @@ export default function PaginaInicial() {
                 >
                     {/* Formulário */}
                     <Box
+                        
                         as="form"
                         onSubmit={function (infosDoEvento) {
                             infosDoEvento.preventDefault();
                             console.log('Alguém submeteu o form')
+                        
                             roteamento.push('/chat')
                             
                         }}
@@ -102,15 +105,23 @@ export default function PaginaInicial() {
                                 setUsername(valor);
                         }} /> */}
 
-                        *<TextField 
+                        
+
+                        <TextField 
                             value={username}
                             onChange={function handler (event) {
                                 console.log('Usuário Digitou', event.target.value)
                                 //Onde ta o valor?
-                                    const valor = event.target.value
+                                    
+                                    //verifica quantos caracteres foram digitados
+                                    
+                                    const valor = event.target.value;
+                                   
+                                    
                                 // Trocar o valor da variável
                                 //através do React e avise quem precisar
                                     setUsername(valor);
+                                    
                             }}
                             fullWidth
                             textFieldColors={{
